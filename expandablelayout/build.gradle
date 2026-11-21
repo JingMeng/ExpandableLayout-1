@@ -1,9 +1,14 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'org.jetbrains.dokka'
 apply from: '../dependencies.gradle'
 
 android {
+    namespace 'com.skydoves.expandablelayout'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions { jvmTarget = '11' }
     compileSdkVersion versions.compileSdk
     defaultConfig {
         minSdkVersion versions.minSdk
@@ -21,6 +26,3 @@ android {
 dependencies {
     implementation "androidx.appcompat:appcompat:$versions.androidxAppcompat"
 }
-
-apply plugin: "com.vanniktech.maven.publish"
-apply from: '../spotless.gradle'
